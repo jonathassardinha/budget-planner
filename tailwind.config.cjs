@@ -1,32 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+    // "./src/pages/**/*.{js,ts,jsx,tsx}",
+    // "./src/components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
-    extend: {
-			colors: {
-				theme: {
-					bg: '#f6f6f6',
-					paperBg: '#fcfcfc',
-					primary: '#426FEF',
-					secondary: '#ffb968',
-					secondaryLight: '#FEDCA9',
-				}
-			},
-			transitionProperty: {
-				border: 'border'
-			},
-			fontSize: {
-				'2xs': ['0.6rem', '125%']
-			},
-		},
+    extend: {},
   },
   plugins: [],
-	safelist: [
-		{
-			pattern: /.*-theme-*./
-		},
-		{
-			pattern: /.*-gray-*./
-		}
-	]
-}
+};
