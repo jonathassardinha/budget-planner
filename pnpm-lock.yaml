@@ -1,6 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@headlessui/react': ^1.7.11
+  '@headlessui/tailwindcss': ^0.1.2
   '@next/font': 13.1.6
   '@types/node': 18.14.0
   '@types/react': 18.0.28
@@ -16,6 +18,7 @@ specifiers:
   typescript: 4.9.5
 
 dependencies:
+  '@headlessui/react': 1.7.11_biqbaboplfbrettd7655fr4n2y
   '@next/font': 13.1.6
   '@types/node': 18.14.0
   '@types/react': 18.0.28
@@ -28,6 +31,7 @@ dependencies:
   typescript: 4.9.5
 
 devDependencies:
+  '@headlessui/tailwindcss': 0.1.2_tailwindcss@3.2.7
   autoprefixer: 10.4.13_postcss@8.4.21
   postcss: 8.4.21
   tailwindcss: 3.2.7_postcss@8.4.21
@@ -57,6 +61,27 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: false
+
+  /@headlessui/react/1.7.11_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-EaDbVgcyiylhtskZZf4Qb/JiiByY7cYbd0qgZ9xm2pm2X7hKojG0P4TaQYKgPOV3vojPhd/pZyQh3nmRkkcSyw==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      client-only: 0.0.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@headlessui/tailwindcss/0.1.2_tailwindcss@3.2.7:
+    resolution: {integrity: sha512-AQNESz+f1grCxifrocOE6hDMDFqhqY0g3xrSGOS0ocGkmVkssaBzXaAPAPNSs/nHmr4ZUhfl5THQpYrvaouWlQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      tailwindcss: ^3.0
+    dependencies:
+      tailwindcss: 3.2.7_postcss@8.4.21
+    dev: true
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
