@@ -12,7 +12,7 @@ export function Balance({ title, amount, accentColor }: BalanceProps) {
   return (
     <div className="flex flex-col items-center gap-4 py-4">
       <span className={`text-xl font-medium uppercase ${colorClass}`}>{title}</span>
-      <span className={`text-2xl font-medium uppercase ${colorClass}`}>{currencyFormatter.format(amount)}</span>
+      <span className={`text-2xl font-medium uppercase ${colorClass}`}>{currencyFormatter(amount)}</span>
     </div>
   );
 }

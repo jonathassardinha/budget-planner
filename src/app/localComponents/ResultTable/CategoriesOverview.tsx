@@ -18,12 +18,12 @@ export function CategoriesOverview({ categoryList }: CategoriesOverviewProps) {
         const diff = planned - real;
         const criticalClass = diff < 0 ? 'text-red-700' : '';
 
-        const realValue = currencyFormatter.format(real);
-        const plannedValue = currencyFormatter.format(planned);
-        const diffValue = currencyFormatter.format(diff);
+        const realValue = currencyFormatter(real);
+        const plannedValue = currencyFormatter(planned);
+        const diffValue = currencyFormatter(diff);
 
         return (
-          <div key="name" className={`${baseRowWrapperClasses} py-0 text-xs`}>
+          <div key="name" className={`${baseRowWrapperClasses} !py-0 text-xs`}>
             <span className="bg-red-50 p-1 py-2">{name}</span>
             <span title={plannedValue} className={`${baseRowClasses} bg-red-50 py-2 `}>
               {plannedValue}

@@ -9,7 +9,7 @@ function StyledTab(props: { children: ReactNode }) {
   return (
     <Tab
       {...props}
-      className="flex-1 rounded-lg py-2 px-4 outline-none transition-all duration-300 ui-selected:bg-white ui-selected:text-orange-500 ui-selected:shadow-lg"
+      className="flex-1 rounded-lg py-2 px-4 font-bold outline-none transition-all duration-300 ui-selected:bg-white ui-selected:text-orange-500 ui-selected:shadow-lg"
     />
   );
 }

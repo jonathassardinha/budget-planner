@@ -18,11 +18,11 @@ export function ResultTableHeader({ planned, real }: ResultTableHeaderProps) {
         <span className={baseRowClasses}>Real</span>
         <span className={baseRowClasses}>Diferença</span>
       </div>
-      <div className={`${baseRowWrapperClasses} py-0 text-xs italic text-gray-500`}>
-        <span className="p-1">Total</span>
-        <span className={baseRowClasses}>{currencyFormatter.format(planned)}</span>
-        <span className={baseRowClasses}>{currencyFormatter.format(real)}</span>
-        <span className={`${baseRowClasses} ${criticalClass}`}>{currencyFormatter.format(diff)}</span>
+      <div className={`${baseRowWrapperClasses} !py-0 text-xs italic text-gray-500`}>
+        <span className="px-1">Total</span>
+        <span className={baseRowClasses}>{currencyFormatter(planned)}</span>
+        <span className={baseRowClasses}>{currencyFormatter(real)}</span>
+        <span className={`${baseRowClasses} ${criticalClass}`}>{currencyFormatter(diff)}</span>
       </div>
     </div>
   );
