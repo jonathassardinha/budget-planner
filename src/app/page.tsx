@@ -1,5 +1,4 @@
 import { Balance } from './localComponents/Balance';
-import { Results } from './localComponents/Results';
 import { Tabs } from './localComponents/Tabs';
 
 export default function Home() {
