@@ -3,6 +3,7 @@
 import { Tab } from "@headlessui/react";
 import { ReactNode } from "react";
 import { Results } from "./Results";
+import { ResultTable } from "./ResultTable";
 
 function StyledTab(props: { children: ReactNode }) {
   return (
@@ -29,23 +30,9 @@ export function Tabs() {
           </div>
         </Tab.Panel>
         <Tab.Panel className="flex flex-col overflow-hidden">
-          <div className="flex flex-col overflow-hidden">
-            <div>header</div>
-            <div className="overflow-auto bg-gray-100">
-              <div style={{ height: "500px" }}></div>
-            </div>
-          </div>
+          <ResultTable />
         </Tab.Panel>
       </Tab.Panels>
     </Tab.Group>
   );
 }
-
-/*
-
-<div className="flex flex-1 flex-col justify-between pt-10 ">
-				<Results title="Guardado esse mês" expected={0} real={-100} />
-				<Results title="Entradas" expected={0} real={100} />
-				<Results title="Saídas" expected={0} real={100} />
-			</div>
-			*/
