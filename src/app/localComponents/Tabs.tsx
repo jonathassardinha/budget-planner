@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { Tab } from "@headlessui/react";
-import { ReactNode } from "react";
-import { Results } from "./Results";
-import { ResultTable } from "./ResultTable";
+import { Tab } from '@headlessui/react';
+import { ReactNode } from 'react';
+import { Results } from './Results';
+import { ResultTable } from './ResultTable';
 
 function StyledTab(props: { children: ReactNode }) {
   return (
     <Tab
       {...props}
-      className="transition-all duration-300 outline-none py-2 px-4 rounded-lg flex-1 ui-selected:shadow-lg ui-selected:text-orange-500 ui-selected:bg-white"
+      className="flex-1 rounded-lg py-2 px-4 outline-none transition-all duration-300 ui-selected:bg-white ui-selected:text-orange-500 ui-selected:shadow-lg"
     />
   );
 }
@@ -17,13 +17,13 @@ function StyledTab(props: { children: ReactNode }) {
 export function Tabs() {
   return (
     <Tab.Group defaultIndex={0}>
-      <Tab.List className="flex gap-4 p-2 bg-gray-100 rounded-xl mb-4">
+      <Tab.List className="mb-4 flex gap-4 rounded-xl bg-gray-100 p-2">
         <StyledTab>Geral</StyledTab>
         <StyledTab>Categorias</StyledTab>
       </Tab.List>
-      <Tab.Panels className="flex-1 overflow-hidden flex flex-col">
+      <Tab.Panels className="flex flex-1 flex-col overflow-hidden">
         <Tab.Panel className="flex flex-col overflow-hidden">
-          <div className="flex flex-col justify-between h-full gap-4 overflow-auto">
+          <div className="flex h-full flex-col justify-between gap-4 overflow-auto">
             <Results title="Guardado esse mês" expected={0} real={-100} />
             <Results title="Entradas" expected={0} real={100} />
             <Results title="Saídas" expected={0} real={100} />

@@ -1,5 +1,5 @@
-import "./globals.css";
-import { Navbar } from "./localComponents/Navbar";
+import './globals.css';
+import { Navbar } from './localComponents/Navbar';
 
 type RootLayoutProps = {
   children: React.ReactNode;

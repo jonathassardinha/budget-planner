@@ -1,22 +1,21 @@
-import { Categories, CategoryInfo } from "./Categories";
-import { baseRowClasses, baseRowWrapperClasses } from "./ResultTable.utils";
-import { ResultTableHeader } from "./ResultTableHeader";
+import { CategoriesOverview, CategoryOverviewInfo } from './CategoriesOverview';
+import { ResultTableHeader } from './ResultTableHeader';
 
 export type ResultTableProps = {};
 export function ResultTable(props: ResultTableProps) {
-  const categoryList: CategoryInfo[] = [
+  const categoryList: CategoryOverviewInfo[] = [
     {
-      name: "Category 1",
+      name: 'Category 1',
       planned: 1500000,
       real: 200,
     },
     {
-      name: "Category 2",
+      name: 'Category 2',
       planned: 1500000,
       real: 200,
     },
     {
-      name: "Category 3",
+      name: 'Category 3',
       planned: 1500000,
       real: 200,
     },
@@ -25,7 +24,7 @@ export function ResultTable(props: ResultTableProps) {
   return (
     <div className="flex flex-col overflow-hidden">
       <ResultTableHeader planned={0} real={3620} />
-      <Categories categoryList={categoryList} />
+      <CategoriesOverview categoryList={categoryList} />
     </div>
   );
 }

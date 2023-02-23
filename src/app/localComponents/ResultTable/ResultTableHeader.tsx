@@ -1,5 +1,5 @@
-import { currencyFormatter } from "@/utils/currencyFormatter";
-import { baseRowClasses, baseRowWrapperClasses } from "./ResultTable.utils";
+import { currencyFormatter } from '@/utils/currencyFormatter';
+import { baseRowClasses, baseRowWrapperClasses } from './ResultTable.utils';
 
 export type ResultTableHeaderProps = {
   planned: number;
@@ -8,7 +8,7 @@ export type ResultTableHeaderProps = {
 
 export function ResultTableHeader({ planned, real }: ResultTableHeaderProps) {
   const diff = planned - real;
-  const criticalClass = diff < 0 ? "text-red-700" : "";
+  const criticalClass = diff < 0 ? 'text-red-700' : '';
 
   return (
     <div className="flex flex-col">
@@ -18,17 +18,11 @@ export function ResultTableHeader({ planned, real }: ResultTableHeaderProps) {
         <span className={baseRowClasses}>Real</span>
         <span className={baseRowClasses}>Diferença</span>
       </div>
-      <div
-        className={`${baseRowWrapperClasses} py-0 text-xs text-gray-500 italic`}
-      >
+      <div className={`${baseRowWrapperClasses} py-0 text-xs italic text-gray-500`}>
         <span className="p-1">Total</span>
-        <span className={baseRowClasses}>
-          {currencyFormatter.format(planned)}
-        </span>
+        <span className={baseRowClasses}>{currencyFormatter.format(planned)}</span>
         <span className={baseRowClasses}>{currencyFormatter.format(real)}</span>
-        <span className={`${baseRowClasses} ${criticalClass}`}>
-          {currencyFormatter.format(diff)}
-        </span>
+        <span className={`${baseRowClasses} ${criticalClass}`}>{currencyFormatter.format(diff)}</span>
       </div>
     </div>
   );
