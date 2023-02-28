@@ -1,3 +1,4 @@
+import { Button } from '@/ui/components/Button';
 import { currencyFormatter } from '@/utils/currencyFormatter';
 import { baseRowClasses, baseRowWrapperClasses } from './ResultTable.utils';
 
@@ -37,6 +38,11 @@ export function CategoriesOverview({ categoryList }: CategoriesOverviewProps) {
           </div>
         );
       })}
+      <div className="grid place-items-center py-2">
+        <Button variant="contained" size="small" fullWidth>
+          Adicionar categoria
+        </Button>
+      </div>
     </div>
   );
 }
