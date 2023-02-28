@@ -1,5 +1,5 @@
-import { Button } from '@/ui/components/Button';
-import { currencyFormatter } from '@/utils/currencyFormatter';
+import { Button } from '@/lib/components/Button';
+import { currencyFormatter } from '@/lib/utils/currencyFormatter';
 import { baseRowClasses, baseRowWrapperClasses } from './ResultTable.utils';
 
 export type CategoryOverviewInfo = {

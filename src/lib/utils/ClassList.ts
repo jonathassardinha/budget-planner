@@ -20,7 +20,6 @@ export class ClassList {
       newClasses.split(' ').forEach((newClass) => this.classes.add(newClass));
     }
 
-    console.debug(newClasses, condition);
     return this;
   }
 

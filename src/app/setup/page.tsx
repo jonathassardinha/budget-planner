@@ -1,5 +1,4 @@
-import { IconButton } from '@/ui/IconButton';
-import Image from 'next/image';
+import { IconButton } from '@/lib/components/IconButton';
 
 export default function Other() {
   return (

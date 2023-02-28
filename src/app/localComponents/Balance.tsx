@@ -1,4 +1,4 @@
-import { currencyFormatter } from '@/utils/currencyFormatter';
+import { currencyFormatter } from '@/lib/utils/currencyFormatter';
 
 export type BalanceProps = {
   title: string;

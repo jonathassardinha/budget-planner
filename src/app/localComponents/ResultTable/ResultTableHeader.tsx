@@ -1,4 +1,4 @@
-import { currencyFormatter } from '@/utils/currencyFormatter';
+import { currencyFormatter } from '@/lib/utils/currencyFormatter';
 import { baseRowClasses, baseRowWrapperClasses } from './ResultTable.utils';
 
 export type ResultTableHeaderProps = {

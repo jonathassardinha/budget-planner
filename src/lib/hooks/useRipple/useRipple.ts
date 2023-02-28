@@ -1,22 +1,12 @@
-'use client';
-
-import Image from 'next/image';
 import { MouseEventHandler, useRef } from 'react';
-import styles from './IconButton.module.scss';
+import styles from './useRipple.module.scss';
 
-export type IconName = 'ArrowRight';
-
-export type IconButtonProps = {
-  icon: IconName;
-  onClick?: () => void;
-};
-
-export function IconButton({ icon, onClick }: IconButtonProps) {
+export function useRipple() {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const rippleRef = useRef<HTMLSpanElement>(null);
   const animationId = useRef<NodeJS.Timeout>();
 
-  const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+  const activateRipple: MouseEventHandler<HTMLButtonElement> = (event) => {
     const currentButton = buttonRef.current;
     const currentRipple = rippleRef.current;
 
@@ -29,9 +19,11 @@ export function IconButton({ icon, onClick }: IconButtonProps) {
       const diameter = Math.max(currentButton.clientWidth, currentButton.clientHeight);
       const radius = diameter / 2;
 
+      const { x: buttonX, y: buttonY } = currentButton.getBoundingClientRect();
+
       currentRipple.style.width = currentRipple.style.height = `${diameter}px`;
-      currentRipple.style.left = `${event.clientX - (currentButton.offsetLeft + radius)}px`;
-      currentRipple.style.top = `${event.clientY - (currentButton.offsetTop + radius)}px`;
+      currentRipple.style.left = `${event.clientX - (buttonX + radius)}px`;
+      currentRipple.style.top = `${event.clientY - (buttonY + radius)}px`;
       currentRipple.classList.add(styles.rippleAnimation);
 
       animationId.current = setTimeout(() => {
@@ -39,17 +31,7 @@ export function IconButton({ icon, onClick }: IconButtonProps) {
         animationId.current = undefined;
       }, 600);
     }
-
-    onClick?.();
   };
 
-  return (
-    <button
-      onClick={handleClick}
-      ref={buttonRef}
-      className="relative overflow-hidden rounded-full p-2 hover:bg-gray-100">
-      <Image alt="svg" src={`/icons/${icon}.svg`} width={24} height={24} />
-      <span className={styles.ripple} ref={rippleRef} />
-    </button>
-  );
+  return { rippleStyle: styles.ripple, buttonRef, rippleRef, activateRipple };
 }
