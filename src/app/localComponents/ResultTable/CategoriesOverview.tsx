@@ -23,7 +23,7 @@ export function CategoriesOverview({ categoryList }: CategoriesOverviewProps) {
         const diffValue = currencyFormatter(diff);
 
         return (
-          <div key="name" className={`${baseRowWrapperClasses} !py-0 text-xs`}>
+          <div key={name} className={`${baseRowWrapperClasses} !py-0 text-xs`}>
             <span className="bg-red-50 p-1 py-2">{name}</span>
             <span title={plannedValue} className={`${baseRowClasses} bg-red-50 py-2 `}>
               {plannedValue}
