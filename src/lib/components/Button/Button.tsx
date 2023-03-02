@@ -3,7 +3,7 @@ import { ClassList } from '@/lib/utils/ClassList';
 import { ButtonHTMLAttributes, MouseEventHandler } from 'react';
 
 const ButtonVariantsClasses = {
-  contained: 'bg-orange-500 text-white font-bold rounded-md',
+  contained: 'bg-orange-500 text-white font-bold rounded-md hover:bg-orange-600',
   outlined: 'bg-white text-gray-900 font-bold border-orange-500 border rounded-md',
   text: 'text-gray-900 rounded-md hover:bg-orange-100 font-bold bg-transparent',
 } as const;
@@ -26,6 +26,7 @@ export function Button({
   fullWidth,
   onClick,
   children,
+  className,
   ...props
 }: ButtonProps) {
   const { activateRipple, buttonRef, rippleRef, rippleStyle } = useRipple();
@@ -33,7 +34,8 @@ export function Button({
   const classList = new ClassList([
     ButtonVariantsClasses[variant],
     ButtonSizeClasses[size],
-    'relative overflow-hidden',
+    'relative overflow-hidden transition-all',
+    className || '',
   ]);
   classList.add('!w-full', !!fullWidth);
 

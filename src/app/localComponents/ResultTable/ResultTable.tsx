@@ -1,9 +1,9 @@
 import { CategoriesOverview, CategoryOverviewInfo } from './CategoriesOverview';
 import { ResultTableHeader } from './ResultTableHeader';
 
-export type ResultTableProps = {};
-export function ResultTable(props: ResultTableProps) {
+export function ResultTable() {
   const categoryList: CategoryOverviewInfo[] = new Array(15).fill(0).map((_, i) => ({
+    id: i.toString(),
     name: `Category ${i}`,
     planned: Math.random() * Math.pow(10, Math.floor(Math.random() * 10)),
     real: Math.random() * Math.pow(10, Math.floor(Math.random() * 10)),

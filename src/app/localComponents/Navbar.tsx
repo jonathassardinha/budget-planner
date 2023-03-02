@@ -13,9 +13,6 @@ export function Navbar() {
       <Link href="/" className={getActiveClass('/', pathname)}>
         Resumo
       </Link>
-      <Link href="/setup" className={getActiveClass('/setup', pathname)}>
-        Config.
-      </Link>
     </nav>
   );
 }

@@ -1,19 +1,18 @@
 'use client';
 
 import { useRipple } from '@/lib/hooks/useRipple';
+import { ClassList } from '@/lib/utils/ClassList';
 import Image from 'next/image';
-import { MouseEventHandler, useRef } from 'react';
-import styles from './IconButton.module.scss';
+import { MouseEventHandler } from 'react';
+import { IconButtonProps, IconButtonSizeClasses, IconSizes } from './IconButton.utils';
 
-export type IconName = 'ArrowRight';
-
-export type IconButtonProps = {
-  icon: IconName;
-  onClick?: () => void;
-};
-
-export function IconButton({ icon, onClick }: IconButtonProps) {
+export function IconButton({ icon, onClick, className, size = 'medium' }: IconButtonProps) {
   const { activateRipple, buttonRef, rippleRef, rippleStyle } = useRipple();
+  const classList = new ClassList([
+    className || '',
+    IconButtonSizeClasses[size],
+    'relative overflow-hidden rounded-full hover:bg-gray-100',
+  ]);
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
     activateRipple(event);
@@ -22,11 +21,8 @@ export function IconButton({ icon, onClick }: IconButtonProps) {
   };
 
   return (
-    <button
-      onClick={handleClick}
-      ref={buttonRef}
-      className="relative overflow-hidden rounded-full p-2 hover:bg-gray-100">
-      <Image alt="svg" src={`/icons/${icon}.svg`} width={24} height={24} />
+    <button onClick={handleClick} ref={buttonRef} className={`${classList}`}>
+      <Image alt="svg" src={`/icons/${icon}.svg`} {...IconSizes[size]} />
       <span className={rippleStyle} ref={rippleRef} />
     </button>
   );

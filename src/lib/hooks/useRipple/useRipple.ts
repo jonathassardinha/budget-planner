@@ -29,7 +29,7 @@ export function useRipple() {
       animationId.current = setTimeout(() => {
         currentRipple.classList.remove(styles.rippleAnimation);
         animationId.current = undefined;
-      }, 600);
+      }, 400);
     }
   };
 
