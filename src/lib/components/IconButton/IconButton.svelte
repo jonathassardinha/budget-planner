@@ -12,6 +12,7 @@
 
 	let className = '';
 	export let icon: AvailableIcons;
+	export let ref: HTMLButtonElement | undefined = undefined;
 	export { className as class };
 	export let style = '';
 	export let onClick: IconButtonOnClickHandler | undefined = undefined;
@@ -35,7 +36,12 @@
 	};
 </script>
 
-<button class="rippleWrapper p-2 rounded-full relative overflow-hidden {className}" on:click={handleClick} {style}>
+<button
+	class="rippleWrapper p-2 rounded-full relative overflow-hidden {className}"
+	on:click={handleClick}
+	{style}
+	bind:this={ref}
+>
 	<svelte:component this={Icon} {...iconProps} />
 	<span
 		class="absolute bg-[rgba(255,255,255,0.7)] rounded-[50%]"

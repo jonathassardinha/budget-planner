@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { IconButton, type AvailableIcons, IconMap } from '$lib/components/IconButton';
+	import { Menu } from '$lib/components/Menu';
 	import type { UpdateCategoryFunctionType } from './Categories.utils';
 	import { availableIconNames, iconColors } from './CategoryItem.utils';
 
@@ -10,7 +11,7 @@
 	export let updateCategory: UpdateCategoryFunctionType;
 
 	let dialog: HTMLDialogElement | undefined;
-	let menu: HTMLDialogElement | undefined;
+	let iconButtonEl: HTMLButtonElement | undefined;
 
 	const openModal = () => {
 		dialog?.showModal();
@@ -23,14 +24,25 @@
 	const setNewColor = (newColor: string) => {
 		updateCategory({ id, icon, color: newColor, name });
 	};
+
+	let openMenu: () => void;
+	let closeMenu: () => void;
 </script>
 
 <div class="px-10 py-2 flex justify-start gap-6 items-center relative">
 	<IconButton {icon} onClick={openModal} class="bg-red-300" style={color ? `background-color: ${color}` : ''} />
 	<span>{name}</span>
-	<div class="ml-auto relative">
-		<IconButton icon="DotsHorizontal" onClick={() => menu?.showModal()} />
-		<dialog bind:this={menu} class="" on:close={() => menu?.close()}>Menu</dialog>
+	<div class="ml-auto">
+		<IconButton icon="DotsHorizontal" onClick={openMenu} bind:ref={iconButtonEl} />
+		<Menu anchorEl={iconButtonEl} bind:openMenu bind:closeMenu class="flex flex-col !p-4 gap-2">
+			<button
+				on:click={() => {
+					openModal();
+					closeMenu();
+				}}>Edit</button
+			>
+			<button class="text-red-700">Remove</button>
+		</Menu>
 	</div>
 
 	<dialog bind:this={dialog} class="dialog rounded-md px-8 py-6">
