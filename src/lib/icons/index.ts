@@ -12,3 +12,4 @@ export { default as Church } from './Church.svelte';
 export { default as GymWeights } from './GymWeights.svelte';
 export { default as Coins } from './Coins.svelte';
 export { default as DotsHorizontal } from './DotsHorizontal.svelte';
+export { default as Plus } from './Plus.svelte';

@@ -12,7 +12,8 @@ import {
 	Heart,
 	Home,
 	OpenBook,
-	Shirt
+	Shirt,
+	Plus
 } from '$lib/icons';
 import type { Writable } from 'svelte/store';
 
@@ -30,7 +31,8 @@ export const IconMap = {
 	Heart: Heart,
 	Home: Home,
 	OpenBook: OpenBook,
-	Shirt: Shirt
+	Shirt: Shirt,
+	Plus: Plus
 } as const;
 
 export type AvailableIcons = keyof typeof IconMap;
@@ -53,8 +55,8 @@ export function setRippleData(rippleData: Writable<RippleData>, event: IconButto
 
 	const newRippleData: RippleData = {
 		width: `${diameter}px`,
-		left: `${event.clientX - button.offsetLeft - radius}px`,
-		top: `${event.clientY - button.offsetTop - radius}px`
+		left: `${event.clientX - button.getBoundingClientRect().x - radius}px`,
+		top: `${event.clientY - button.getBoundingClientRect().y - radius}px`
 	};
 
 	rippleData.set(newRippleData);

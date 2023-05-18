@@ -13,7 +13,9 @@
 	let className = '';
 	export let icon: AvailableIcons;
 	export { className as class };
+	export let style = '';
 	export let onClick: IconButtonOnClickHandler | undefined = undefined;
+	export let iconProps: { class?: string; color?: string } = {};
 
 	let rippleElement: HTMLSpanElement | undefined;
 	const rippleData = writable<RippleData>({ width: '', left: '', top: '' });
@@ -33,8 +35,8 @@
 	};
 </script>
 
-<button class="rippleWrapper p-2 rounded-full relative overflow-hidden {className}" on:click={handleClick}>
-	<Icon />
+<button class="rippleWrapper p-2 rounded-full relative overflow-hidden {className}" on:click={handleClick} {style}>
+	<svelte:component this={Icon} {...iconProps} />
 	<span
 		class="absolute bg-[rgba(255,255,255,0.7)] rounded-[50%]"
 		style="
