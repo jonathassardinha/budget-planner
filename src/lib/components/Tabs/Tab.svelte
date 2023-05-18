@@ -14,6 +14,17 @@
 	on:click={() => {
 		$currentActiveTab = id;
 	}}
+	class="relative"
 >
-	<span class={isTabActive ? 'text-red-500' : ''}>{label}</span>
+	<span
+		class="text-xl transition-[color] duration-500 {isTabActive
+			? 'text-gray-800'
+			: 'text-gray-400'}">{label}</span
+	>
+	<div class="absolute flex justify-center w-full h-px -bottom-1">
+		<div
+			class="bg-lime-600 h-[2px] transition-all duration-500 linear rounded-lg"
+			style="width: {isTabActive ? '90%' : '0px'};"
+		/>
+	</div>
 </button>

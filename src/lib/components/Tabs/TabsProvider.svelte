@@ -3,7 +3,9 @@
 	import { TabsContextKey, type TabsContextType } from './Tabs.utils';
 	import { writable } from 'svelte/store';
 
-	const currentActiveTab = writable<string>();
+	export let defaultTab: string;
+
+	const currentActiveTab = writable<string>(defaultTab);
 
 	setContext<TabsContextType>(TabsContextKey, { currentActiveTab });
 </script>
