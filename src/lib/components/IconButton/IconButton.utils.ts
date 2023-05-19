@@ -15,6 +15,7 @@ import {
 	Shirt,
 	Plus
 } from '$lib/icons';
+import type { OnClickEvent } from '$lib/utils/types';
 import type { Writable } from 'svelte/store';
 
 export const IconMap = {
@@ -37,17 +38,14 @@ export const IconMap = {
 
 export type AvailableIcons = keyof typeof IconMap;
 
-export type IconButtonOnClickEvent = MouseEvent & {
-	currentTarget: EventTarget & HTMLButtonElement;
-};
-export type IconButtonOnClickHandler = (event: IconButtonOnClickEvent) => void;
+export type IconButtonOnClickHandler = (event: OnClickEvent<HTMLButtonElement>) => void;
 export type RippleData = {
 	width: string;
 	left: string;
 	top: string;
 };
 
-export function setRippleData(rippleData: Writable<RippleData>, event: IconButtonOnClickEvent) {
+export function setRippleData(rippleData: Writable<RippleData>, event: OnClickEvent<HTMLButtonElement>) {
 	const button = event.currentTarget;
 
 	const diameter = Math.max(button.clientWidth, button.clientHeight);

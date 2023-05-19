@@ -37,7 +37,7 @@
 </script>
 
 <button
-	class="rippleWrapper p-2 rounded-full relative overflow-hidden {className}"
+	class="rippleWrapper p-2 rounded-full relative overflow-hidden {className} transition-colors duration-500"
 	on:click={handleClick}
 	{style}
 	bind:this={ref}

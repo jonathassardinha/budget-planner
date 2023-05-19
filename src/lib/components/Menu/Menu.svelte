@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { writable } from 'svelte/store';
-	import type { DialogClickEvent } from './Menu.utils';
+	import { openMenu, type MenuStyles, MenuContextKey, type MenuContext } from './Menu.utils';
+	import { setContext } from 'svelte';
+	import type { OnClickEvent } from '$lib/utils/types';
+
+	const menuStyles = writable<MenuStyles>({
+		top: 0,
+		left: 0
+	});
 
 	export let anchorEl: HTMLElement | undefined;
 	let paperClass = '';
@@ -8,34 +15,18 @@
 	let dialog: HTMLDialogElement | undefined;
 	let menuPaper: HTMLDivElement | undefined;
 
-	const menuStyles = writable({
-		top: 0,
-		left: 0
-	});
-
-	export const openMenu = () => {
-		if (dialog && anchorEl && menuPaper) {
-			dialog.showModal();
-			const boundingRect = anchorEl.getBoundingClientRect();
-
-			const menuRect = menuPaper.getBoundingClientRect();
-			const maxLeft = window.innerWidth - menuRect.width - 16;
-			const maxTop = window.innerHeight - menuRect.height - 16;
-			menuStyles.set({
-				top: Math.min(maxTop, boundingRect.bottom),
-				left: Math.min(maxLeft, boundingRect.left)
-			});
-		}
-	};
-
+	const handleOpen = () => openMenu({ anchorEl, dialog, menuPaper, menuStyles });
+	export { handleOpen as openMenu };
 	export const closeMenu = () => dialog?.close();
 
-	const onMenuClick = (event: DialogClickEvent) => {
+	const onMenuClick = (event: OnClickEvent<HTMLDialogElement>) => {
 		const target = event.target as HTMLElement;
 		if (target.nodeName === 'DIALOG') {
 			dialog?.close();
 		}
 	};
+
+	setContext<MenuContext>(MenuContextKey, closeMenu);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
